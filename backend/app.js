@@ -24,7 +24,7 @@ app.use("/auth", authRoutes)
 app.use("/posts", postRoutes)
 
 app.get("/", (req, res, next) => {
-    res.status(200).json({ ping: "pong" })
+  res.status(200).json({ ping: "pong" })
 })
 
 /** Handle 404 errors -- this matches everything */

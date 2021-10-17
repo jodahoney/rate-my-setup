@@ -8,9 +8,9 @@ class User {
     return {
       id: user.id,
       email: user.email,
+      username: user.username,
       isAdmin: user.is_admin,
       createdAt: user.created_at,
-      username: user.username,
     }
   }
 
@@ -57,14 +57,14 @@ class User {
 
     const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR)
     const normalizedEmail = credentials.email.toLowerCase()
-    const normalizeUsername = credentials.username.toLowerCase()
+    const normalizedUsername = credentials.username.toLowerCase()
 
     const userResult = await db.query(
-      `INSERT INTO users (email, password, is_admin)
-       VALUES ($1, $2, $3)
-       RETURNING id, email, is_admin, created_at;
+      `INSERT INTO users (email, username, password, is_admin)
+       VALUES ($1, $2, $3, $4)
+       RETURNING id, email, username, is_admin, created_at;
       `,
-      [normalizedEmail, hashedPassword, credentials.isAdmin]
+      [normalizedEmail, normalizedUsername, hashedPassword, credentials.isAdmin]
     )
     const user = userResult.rows[0]
 

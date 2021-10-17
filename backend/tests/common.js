@@ -1,25 +1,25 @@
 const db = require("../db.js")
 
 async function commonBeforeAll() {
-    // any database actions
-    // we want to take before the tests
+  // any database actions
+  // we want to take before the tests
 }
 
 async function commonBeforeEach() {
-    await db.query("BEGIN")
+  await db.query("BEGIN")
 }
 
 async function commonAfterEach() {
-    await db.query("ROLLBACK")
+  await db.query("ROLLBACK")
 }
 
 async function commonAfterAll() {
-    await db.end()
+  await db.end()
 }
 
 module.exports = {
-    commonBeforeAll,
-    commonAfterAll,
-    commonBeforeEach,
-    commonAfterEach,
+  commonAfterAll,
+  commonBeforeAll,
+  commonAfterEach,
+  commonBeforeEach,
 }
