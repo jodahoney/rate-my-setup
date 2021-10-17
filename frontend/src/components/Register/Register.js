@@ -1,6 +1,3 @@
-// import { useEffect, useState } from "react"
-// import { useNavigate, Link } from "react-router-dom"
-// import apiClient from "../../services/apiClient"
 import { Link } from "react-router-dom"
 import { useRegistrationForm } from "../../hooks/useRegistrationForm"
 import "./Register.css"
