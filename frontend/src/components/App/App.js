@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-// import axios from "axios"
+import { Home, Login, Navbar, NotFound, PostDetail, Register } from "components"
 import apiClient from "../../services/apiClient"
-import Navbar from "../Navbar/Navbar"
-import Home from "../Home/Home"
-import Register from "../Register/Register"
-import Login from "../Login/Login"
-import PostDetail from "../PostDetail/PostDetail"
-import NotFound from "../NotFound/NotFound"
 import "./App.css"
 
 export default function App() {
